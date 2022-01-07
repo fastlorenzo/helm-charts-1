@@ -83,7 +83,10 @@ spec:
           - name: WEBMAIL
             value: none
           - name: SECRET_KEY
-            value: "chang3m3!"
+            valueFrom:
+              secretKeyRef:
+                name: mailu-secret-key
+                key: secret-key
         ports:
           - name: auth
             containerPort: 2102

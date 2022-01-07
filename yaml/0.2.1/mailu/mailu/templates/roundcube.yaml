@@ -51,7 +51,10 @@ spec:
           - name: FRONT_ADDRESS
             value: mailu-front
           - name: SECRET_KEY
-            value: "chang3m3!"
+            valueFrom:
+              secretKeyRef:
+                name: mailu-secret-key
+                key: secret-key
           - name: SUBNET
             value: 10.42.0.0/16
           - name: ROUNDCUBE_DB_FLAVOR
