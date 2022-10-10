@@ -1,0 +1,22 @@
+---
+# Source: mailu/templates/clamav/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailu-clamav
+  namespace: "mailu"
+  labels:
+    app.kubernetes.io/name: mailu
+    helm.sh/chart: mailu-0.3.3
+    app.kubernetes.io/instance: mailu
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: clamav
+spec:
+  selector:
+    app.kubernetes.io/name: mailu
+    app.kubernetes.io/instance: mailu
+    app.kubernetes.io/component: clamav
+  ports:
+    - name: clamav
+      port: 3310
+      protocol: TCP

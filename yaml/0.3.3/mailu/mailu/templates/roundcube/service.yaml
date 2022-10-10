@@ -1,0 +1,22 @@
+---
+# Source: mailu/templates/roundcube/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailu-roundcube
+  namespace: "mailu"
+  labels:
+    app.kubernetes.io/name: mailu
+    helm.sh/chart: mailu-0.3.3
+    app.kubernetes.io/instance: mailu
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: roundcube
+spec:
+  selector:
+    app.kubernetes.io/name: mailu
+    app.kubernetes.io/instance: mailu
+    app.kubernetes.io/component: roundcube
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP

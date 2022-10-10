@@ -1,0 +1,34 @@
+---
+# Source: mailu/templates/dovecot/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailu-dovecot
+  namespace: "mailu"
+  labels:
+    app.kubernetes.io/name: mailu
+    helm.sh/chart: mailu-0.3.3
+    app.kubernetes.io/instance: mailu
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: dovecot
+spec:
+  selector:
+    app.kubernetes.io/name: mailu
+    app.kubernetes.io/instance: mailu
+    app.kubernetes.io/component: dovecot
+  ports:
+    - name: imap-auth
+      port: 2102
+      protocol: TCP
+    - name: imap-transport
+      port: 2525
+      protocol: TCP
+    - name: imap-default
+      port: 143
+      protocol: TCP
+    - name: pop3
+      port: 110
+      protocol: TCP
+    - name: sieve
+      port: 4190
+      protocol: TCP
