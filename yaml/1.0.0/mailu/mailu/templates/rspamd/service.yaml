@@ -1,0 +1,25 @@
+---
+# Source: mailu/templates/rspamd/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailu-rspamd
+  namespace: "mailu"
+  labels:
+    app.kubernetes.io/name: mailu
+    helm.sh/chart: mailu-1.0.0
+    app.kubernetes.io/instance: mailu
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: rspamd
+spec:
+  selector:
+    app.kubernetes.io/name: mailu
+    app.kubernetes.io/instance: mailu
+    app.kubernetes.io/component: rspamd
+  ports:
+    - name: rspamd
+      port: 11332
+      protocol: TCP
+    - name: rspamd-http
+      protocol: TCP
+      port: 11334

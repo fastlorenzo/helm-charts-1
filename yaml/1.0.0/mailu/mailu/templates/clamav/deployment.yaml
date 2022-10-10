@@ -1,0 +1,75 @@
+---
+# Source: mailu/templates/clamav/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailu-clamav
+  namespace: "mailu"
+  labels:
+    app.kubernetes.io/name: mailu
+    helm.sh/chart: mailu-1.0.0
+    app.kubernetes.io/instance: mailu
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: clamav
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mailu
+      app.kubernetes.io/instance: mailu
+      app.kubernetes.io/component: clamav
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: mailu
+        helm.sh/chart: mailu-1.0.0
+        app.kubernetes.io/instance: mailu
+        app.kubernetes.io/managed-by: Helm
+        app.kubernetes.io/component: clamav
+    spec:
+      
+      terminationGracePeriodSeconds: 2
+      containers:
+        - name: clamav
+          image: mailu/clamav:master
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: data
+              subPath: clamav
+              mountPath: /data
+          env:
+            - name: LOG_LEVEL
+              value: WARNING
+          envFrom:
+          ports:
+            - name: clamav
+              containerPort: 3310
+              protocol: TCP
+          resources:
+            limits: {}
+            requests: {}
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+            exec:
+              command:
+                - /health.sh
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+            exec:
+              command:
+                - /health.sh
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: mailu-storage
