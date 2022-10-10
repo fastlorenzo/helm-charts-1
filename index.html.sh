@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat << EOF
+cat <<EOF
 <html>
 <body>
 <h1>Public repo for Mailu helm chart</h1>
@@ -15,11 +15,12 @@ helm install mailu/mailu
 <ul>
 EOF
 
-grep index.yaml -e "version:" | awk -F': ' '{print "<li>"$2"</li>"}' | sort -n -r
+ls mailu-*.tgz | sed -n 's/^.*mailu-\(.*\)\.tgz$/\1/p' | sort -ur | while read VERSION; do
+    echo "<li><a href=\"mailu-${VERSION}.tgz\">${VERSION}</a></li>"
+done
 
-cat << EOF
+cat <<EOF
 </ul>
 </body>
 </html>
 EOF
-
