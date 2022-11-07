@@ -18,8 +18,6 @@ helm install my-release mailu/mailu
 ## Previous versions
 
 * [0.3.3](mailu-0.3.3.tgz)
-* [0.2.2](mailu-0.2.2.tgz)
-* [0.2.1](mailu-0.2.1.tgz)
 * [0.2.0](mailu-0.2.0.tgz)
 * [0.1.6](mailu-0.1.6.tgz)
 * [0.1.5](mailu-0.1.5.tgz)
