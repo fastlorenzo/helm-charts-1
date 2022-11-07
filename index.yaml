@@ -384,26 +384,6 @@ entries:
     version: 0.3.3
   - apiVersion: v1
     appVersion: "1.8"
-    created: "2022-10-10T20:12:37.333509852Z"
-    description: Mailu mail system
-    digest: 63cf975ef2bb9dc2295680500e72de8d6c00dc0625fd40b2f244b571ba1ffbfc
-    icon: https://mailu.io/master/_images/logo.png
-    name: mailu
-    urls:
-    - https://mailu.github.io/helm-charts/mailu-0.2.2.tgz
-    version: 0.2.2
-  - apiVersion: v1
-    appVersion: "1.8"
-    created: "2022-10-10T20:12:37.331115317Z"
-    description: Mailu mail system
-    digest: bd0f2988c47913382b30d94c16e2b383970aee6b03dd2a9bd7b61701b718d812
-    icon: https://mailu.io/master/_images/logo.png
-    name: mailu
-    urls:
-    - https://mailu.github.io/helm-charts/mailu-0.2.1.tgz
-    version: 0.2.1
-  - apiVersion: v1
-    appVersion: "1.8"
     created: "2022-10-10T20:12:37.328740783Z"
     description: Mailu mail system
     digest: 7c13af5ce821bf59dee291e541463022f3b703bc8243b183302e7a959b359d24
