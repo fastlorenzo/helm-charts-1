@@ -3,7 +3,7 @@ entries:
   mailu:
   - apiVersion: v2
     appVersion: "1.9"
-    created: "2022-11-09T20:31:28.442007955Z"
+    created: "2022-11-09T22:29:38.015147694+01:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -23,7 +23,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 11.3.*
     description: This chart installs the Mailu mail system on kubernetes
-    digest: af518816879ee157196b98e428a06af4415a5df66589a51d15022f9ccadd98f1
+    digest: 20d312716fe25fbcb2429e61d8c266143632d77ce89ed26fad2a6af81b096025
     home: https://mailu.io
     icon: https://mailu.io/master/_images/logo.png
     keywords:
@@ -44,11 +44,11 @@ entries:
     sources:
     - https://github.com/Mailu/helm-charts/
     urls:
-    - https://github.com/fastlorenzo/helm-charts-1/releases/download/mailu-v1.0.0-beta.21/mailu-1.0.0-beta.21.tgz
+    - https://github.com/fastlorenzo/helm-charts-1/releases/download/mailu-1.0.0-beta.21/mailu-1.0.0-beta.21.tgz
     version: 1.0.0-beta.21
   - apiVersion: v2
     appVersion: "1.9"
-    created: "2022-11-09T17:56:59.806091468Z"
+    created: "2022-11-09T22:29:37.778821433+01:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -68,7 +68,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 11.3.*
     description: This chart installs the Mailu mail system on kubernetes
-    digest: 2d07fe8bae55b8b2668d2030a97f43f1cea3e6cdb2e262abc8cf0271661fe3ac
+    digest: 9a8a4981eb117307ad4c2d54d741fb774e350eed1ff47a974b0e3602427d8234
     home: https://mailu.io
     icon: https://mailu.io/master/_images/logo.png
     keywords:
@@ -89,11 +89,11 @@ entries:
     sources:
     - https://github.com/Mailu/helm-charts/
     urls:
-    - https://github.com/fastlorenzo/helm-charts-1/releases/download/mailu-v1.0.0-beta.20/mailu-1.0.0-beta.20.tgz
+    - https://github.com/fastlorenzo/helm-charts-1/releases/download/mailu-1.0.0-beta.20/mailu-1.0.0-beta.20.tgz
     version: 1.0.0-beta.20
   - apiVersion: v2
     appVersion: "1.9"
-    created: "2022-11-09T10:16:40.355524052Z"
+    created: "2022-11-09T22:29:37.55386071+01:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -113,7 +113,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 11.3.*
     description: This chart installs the Mailu mail system on kubernetes
-    digest: b957909cab078a0c4476880be88fc38ccc57fae6135d5c0da7b146d96bbe52aa
+    digest: 276415462367bc6b8484a6f0b8e57319daa51c5e4ef5ea094b7e96904d49a6ba
     home: https://mailu.io
     icon: https://mailu.io/master/_images/logo.png
     keywords:
@@ -134,7 +134,7 @@ entries:
     sources:
     - https://github.com/Mailu/helm-charts/
     urls:
-    - https://github.com/fastlorenzo/helm-charts-1/releases/download/mailu-v1.0.0-beta.19/mailu-1.0.0-beta.19.tgz
+    - https://github.com/fastlorenzo/helm-charts-1/releases/download/mailu-1.0.0-beta.19/mailu-1.0.0-beta.19.tgz
     version: 1.0.0-beta.19
   - apiVersion: v2
     appVersion: "1.9"
@@ -848,4 +848,4 @@ entries:
     urls:
     - https://mailu.github.io/helm-charts/mailu-0.0.1.tgz
     version: 0.0.1
-generated: "2022-11-09T20:31:28.442463261Z"
+generated: "2022-11-09T22:29:38.01543104+01:00"
