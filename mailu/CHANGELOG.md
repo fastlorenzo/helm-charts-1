@@ -1,5 +1,43 @@
 # Changelog
 
+## [1.0.0](https://github.com/fastlorenzo/helm-charts-1/compare/mailu-v1.2.0...mailu-1.0.0) (2023-06-03)
+
+
+### Features
+
+* Add proxyAuth section to values to configure PROXY_AUTH_* env vars ([04825ef](https://github.com/fastlorenzo/helm-charts-1/commit/04825ef1457ae34e2b0471fefd04397df4ba4a01))
+* Add support for TLS settings ([07fad3a](https://github.com/fastlorenzo/helm-charts-1/commit/07fad3a81bb823ca979afdc1dca0d4944d4e7775))
+* Added oletools component ([0a4f95f](https://github.com/fastlorenzo/helm-charts-1/commit/0a4f95f3d0d42a5a42b9d3db612ff6afb2a62628))
+* Added support for WILDCARD_SENDERS ([f72db8d](https://github.com/fastlorenzo/helm-charts-1/commit/f72db8d78dd0de4d77ad8085dfafe5de0f38cab8))
+* Updated Mailu version to 2.0.5 ([6c79a73](https://github.com/fastlorenzo/helm-charts-1/commit/6c79a73b99cd252db200970b323a1c44525b7cbf))
+
+
+### Bug Fixes
+
+* [BUG] Helm error when deploying with webdav.enabled=true because of missing template [#232](https://github.com/fastlorenzo/helm-charts-1/issues/232) ([91cd49e](https://github.com/fastlorenzo/helm-charts-1/commit/91cd49e57166f1d64f2e667b96efe5ba1f01d7c1))
+* [BUG] postfix-overrides ConfigMap will never render [#234](https://github.com/fastlorenzo/helm-charts-1/issues/234) ([bc73acc](https://github.com/fastlorenzo/helm-charts-1/commit/bc73acca4f24d162716c73fad6833ffb7dbf9f02))
+* bumped Mailu version to 2.0.10 ([f70466c](https://github.com/fastlorenzo/helm-charts-1/commit/f70466cde9d11891593d0ecb25b5b1d3bf69a11d))
+* cleaned env vars for addresses ([11eeea0](https://github.com/fastlorenzo/helm-charts-1/commit/11eeea0738cd56ef881acfa1f0dfe850733ebce3))
+* cleaned env vars for addresses ([#65](https://github.com/fastlorenzo/helm-charts-1/issues/65)) ([1768f6a](https://github.com/fastlorenzo/helm-charts-1/commit/1768f6abf94a61e7379202f4815f8c775cf1774d))
+* fixed dovecot probes ([b1b0405](https://github.com/fastlorenzo/helm-charts-1/commit/b1b0405681350a85464cf3d69c3bc28355f7d8c5))
+* Fixed Dovecot probes ([41f3497](https://github.com/fastlorenzo/helm-charts-1/commit/41f349766e5c7a4084befd0b2b62a6c3081f5e6b))
+* fixed encoding of relayuser and relaypassword ([0209240](https://github.com/fastlorenzo/helm-charts-1/commit/02092404f1d060699fff81554b54872bcfbb6479))
+* Fixed env var for antispam ([c180724](https://github.com/fastlorenzo/helm-charts-1/commit/c18072403f204c68aa2766c29f44255f0aa310a3))
+* Fixed env var for antispam ([#63](https://github.com/fastlorenzo/helm-charts-1/issues/63)) ([00e62e6](https://github.com/fastlorenzo/helm-charts-1/commit/00e62e65011ffe748061fcc1ef126cc9d88678e9))
+* fixed readme and generator ([98c21c7](https://github.com/fastlorenzo/helm-charts-1/commit/98c21c79a68d0aef21c2022d2eb562e232456086))
+* Fixed sieve support ([91792ff](https://github.com/fastlorenzo/helm-charts-1/commit/91792ffbc0811d1c0252603c53c17d1e25d646a6))
+* fixed typo in fetchmail deployment ([baca17a](https://github.com/fastlorenzo/helm-charts-1/commit/baca17a2c12019a8504f3a72b17809690c2d79fc))
+* fixed typo when external service set to NodePort ([741a90d](https://github.com/fastlorenzo/helm-charts-1/commit/741a90daf10d45f181e253f06c863919b00e9dc3))
+* Restrict web ports to ingress-nginx when network policies are enabled ([e21cc8b](https://github.com/fastlorenzo/helm-charts-1/commit/e21cc8bcdecfcba509bfaea01609858393a2730e))
+
+
+### Miscellaneous Chores
+
+* Release 1.0.0 ([db41cf5](https://github.com/fastlorenzo/helm-charts-1/commit/db41cf50d6567177aa13e2ff43320c8df733e8e0))
+* release 1.0.0-beta.30 ([0e7c8af](https://github.com/fastlorenzo/helm-charts-1/commit/0e7c8af3d49fdd874a31d82a19db910197ed77ad))
+* release 1.0.0-beta.31 ([87fa8e8](https://github.com/fastlorenzo/helm-charts-1/commit/87fa8e8b96fca5cbaf0cef08d094ba3f51dd4233))
+* release 1.0.0-beta.32 ([b31d9f4](https://github.com/fastlorenzo/helm-charts-1/commit/b31d9f4bbdd8d7ff161e3fadd689798e91437fd7))
+
 ## [1.2.0](https://github.com/Mailu/helm-charts/compare/mailu-1.1.1...mailu-1.2.0) (2023-05-01)
 
 
