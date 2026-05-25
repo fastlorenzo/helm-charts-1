@@ -32,7 +32,9 @@ jobs:
 
       - name: Extract chart name
         id: extract_chart_name
-        run: echo "::set-output name=chart_name::$(basename '${{ github.event.inputs.package }}')"
+        env:
+          PACKAGE: ${{ github.event.inputs.package }}
+        run: echo "::set-output name=chart_name::$(basename '$PACKAGE')"
 
       - name: Checkout Github Pages to gh-pages folder
         uses: actions/checkout@v3
@@ -48,13 +50,17 @@ jobs:
           version: v3.10.0
 
       - name: Install dependencies
+        env:
+          PACKAGE: ${{ github.event.inputs.package }}
         run: |
           helm repo add bitnami https://charts.bitnami.com/bitnami
           helm repo update
-          helm dependency build ${{ github.event.inputs.package }}
+          helm dependency build $PACKAGE
 
       - name: Run helm lint
-        run: helm lint --strict --values ${{ github.event.inputs.package }}/ci/helm-lint-values.yaml ${{ github.event.inputs.package }}
+        env:
+          PACKAGE: ${{ github.event.inputs.package }}
+        run: helm lint --strict --values $PACKAGE/ci/helm-lint-values.yaml $PACKAGE
 
       - name: Install chart-releaser
         uses: helm/chart-releaser-action@v1.4.1
@@ -62,8 +68,10 @@ jobs:
           install_only: true
 
       - name: Package Chart with chart-releaser
+        env:
+          PACKAGE: ${{ github.event.inputs.package }}
         run: |
-          cr package ${{ github.event.inputs.package }}
+          cr package $PACKAGE
 
       - name: Attest Build Provenance
         uses: actions/attest-build-provenance@v2
@@ -95,17 +103,21 @@ jobs:
             ${{ steps.attest.outputs.bundle-path }}
 
       - name: Update chart index and publish to Github pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          PACKAGE: ${{ github.event.inputs.package }}
+          VERSION: ${{ github.event.inputs.version }}
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "Github actions"
-          REPO_NAME=$(echo "${{ github.repository }}" | cut -d "/" -f 2)
-          cr -t $GITHUB_TOKEN index -o ${{ github.repository_owner }} -r ${REPO_NAME} -i gh-pages/index.yaml --release-name-template "{{ .Name }}-{{ .Version }}"
+          REPO_NAME=$(echo "$REPOSITORY" | cut -d "/" -f 2)
+          cr -t $GITHUB_TOKEN index -o $REPOSITORY_OWNER -r ${REPO_NAME} -i gh-pages/index.yaml --release-name-template "{{ .Name }}-{{ .Version }}"
           cd gh-pages
           git add .
-          git commit -m "New Chart Release for ${{ github.event.inputs.package }}: ${{ github.event.inputs.version }}"
+          git commit -m "New Chart Release for $PACKAGE: $VERSION"
           git push origin gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   notify-matrix:
     needs:
